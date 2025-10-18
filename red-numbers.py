@@ -2,7 +2,7 @@
 # Theory composed by taking inspiration from default CR machine numbers, Lapwing numbers, Harri numbers, Jeff's numbers
 # Code heavily based off of Jeff's numbers
 # Modular system - all strokes are single blocks
-# Release v1.0  - 7/19/25
+# Release v1.1  - 10/17/25
 #
 # See README.md for usage details.
 import re
@@ -19,7 +19,8 @@ LEFT_MODIFIERS = {
     "sSuffix"               : "S",      # s suffix
     "20Prefix"              : "TH",     # 20 prefix
     "19Prefix"              : "TP",     # 19 prefix
-    "moneyPrefix"           : "PH",     # $ prefix by default, secondary money sign on PH* (€ by default)
+    "moneyPrefix"           : "PH",     # $ prefix by default
+    "altMoneyPrefix"        : "PH*",    # secondary money sign (€ by default) note: only here for flattener, detected in code through moneyPrefix
     "colonPrefix"           : "HR",     # : prefix
     "apostrophePrefix"      : "PHR",    # ' prefix
     "ordinalSuffix"         : "ST",     # ordinal conversion
@@ -147,6 +148,7 @@ def lookup(input):
     key = input[0]
     result = ""
     use_glue = True
+    default_end = True
 
     if key == "#":
         raise KeyError
@@ -237,12 +239,17 @@ def lookup(input):
             #true prefix (add to words, or for telephone numbers)
         if match[1] == LEFT_MODIFIERS["sSuffix"] or h_s:
             result += "s"
+            default_end = False
         if match[1] == LEFT_MODIFIERS["20Prefix"] or h_20:
             #personally I'd rather have an extra if else than convert to int and back to add
             if len(stroke_digits) == 2:
                 result = "20" + result
+                use_glue = False
+                default_end = False
             elif len(stroke_digits) == 1:
                 result = "200" + result
+                use_glue = False
+                default_end = False
             elif len(stroke_digits) == 0:
                 result = "20"
             else:
@@ -250,8 +257,12 @@ def lookup(input):
         if match[1] == LEFT_MODIFIERS["19Prefix"] or h_19:
             if len(stroke_digits) == 2:
                 result = "19" + result
+                use_glue = False
+                default_end = False
             elif len(stroke_digits) == 1:
                 result = "190" + result
+                use_glue = False
+                default_end = False
             elif len(stroke_digits) == 0:
                 result = "19"
             else:
@@ -294,6 +305,7 @@ def lookup(input):
                 else:
                     result += "th"
             else:
+                default_end = False
                 if len(result) >= 1 and result[-1] == "1":
                     result += "th" if len(result) >= 2 and result[-2] == "1" else "st"
                 elif len(result) >= 1 and result[-1] == "2":
@@ -304,8 +316,13 @@ def lookup(input):
                     result += "th"
         if match[1] == LEFT_MODIFIERS["percentSignSuffix"] or h_prsign: #not court reporting canon
             result += "%"
+            default_end = False
         if match[1] == LEFT_MODIFIERS["percentWordSuffix"] or h_prword:
+            if result == "0":
+                result = "zero"
+
             result += " percent"
+            default_end = False
         #if match[1] == LEFT_MODIFIERS["orBetween"] or match[1] == "RA": #RA is just a safeguard for the non suggested method
         #    #check if two digits, then split, then convert to words and join with r. otherwise throw error
         #    if len(result) == 2:
@@ -323,6 +340,7 @@ def lookup(input):
     if match[3] and len(stroke_digits) <= 2:
         if match[1] == "" or match[1] == LEFT_MODIFIERS["colonPrefix"]:
             result += RIGHT_MODIFIERS[match[3]]
+            default_end = False
         else:
             raise KeyError
     elif match[3] and len(stroke_digits) > 2:
@@ -333,6 +351,9 @@ def lookup(input):
 
     if use_glue:
         result = "{&" + result + "}"
+    
+    if not default_end:
+        result += "{}"
 
     return result
 
