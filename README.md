@@ -4,6 +4,8 @@ Created by Red Sun, based upon ideas from default CR machine numbers, Lapwing nu
 
 Greatly compress your number writing into fewer strokes with a fully customizable dictionary!
 
+Graphics for this tutorial graciously provided by fieldchicken.
+
 ### **[Complete Documentation](FULLTHEORY.md)**
 
 ## How does Red Numbers save you strokes?
@@ -20,13 +22,15 @@ $8.91|`TKHR*/8/P-P/9/1` (4)|`347/30R8` (2)
 
 ## Installation
 
-1. Download your file of choice. (.py is recommended)
+1. Download your file of choice and load it into Plover or your CAT. (.py is recommended)
 2. If using the .py version, be sure to have the plover-python-dictionary plugin installed in Plover.
 3. Enjoy!
 
 Note: .json, .dct, and .rtf file formats are also provided for vanilla Plover, Javelin, DigitalCAT, and other CAT users.
 
 ## How to learn Red Numbers
+
+![Steno keyboard layout for Red Numbers](img/1-redn-layout.png)
 
 This is an entirely modular system; that is, you can stop at any step you like and still enjoy. The more you learn, the more power you unlock, but the learning curve is not steep as it is still completely functional at the beginning level.
 
@@ -36,11 +40,13 @@ This is the quick and dirty, but for more details on why certain design choices 
 
 ### Step 1: Basic Number Pad
 
-Every stroke in this dictionary uses the number bar (`#`). On traditional machines, this is the long bar at the top. On most hobbyist layouts, this is the top-row key above initial S.
+Every stroke in this dictionary uses the number bar (`#`). On traditional machines, this is the long bar at the top. On most hobbyist layouts, this is the top-row key above initial `S`.
 
 On a traditional machine, always use your **left middle finger** to hit the number bar in this theory.
 
-Use your right pointer, middle, and ring fingers on `FRPBLG` to type digits 1-9 in a numberpad pattern. (This is the exact same as in Lapwing.)
+Use your right pointer, middle, and ring fingers on `FRPBLG` to type digits 1-9 in a numberpad pattern. (This is the exact same as in [Lapwing](https://lapwing.aerick.ca/Chapter-18.html#numbers).)
+
+![Typing on the number pad for Red Numbers](img/2-redn-step1.png)
 
 Digit|Steno
 -----|-----
@@ -62,7 +68,7 @@ Digit|Steno
 00|`U`
 000|`EU`
 
-Combining any of the single digit numbers with a zero key affixes that number of zeroes to that digit. This has similar functionality to the O key in default numbers.
+Combining any of the single digit numbers with a zero key affixes that number of zeroes to that digit. This has similar functionality to the `O` key in default numbers.
 
 For example, `PB` and `U` together (`#UPB`) outputs 500.
 
@@ -72,7 +78,10 @@ All digits typed in this dictionary contain glue; that is, they stick to other c
 
 Left hand modifiers are written using the keys `STPHRA*` and right hand modifiers are written using the keys `DZ`.
 
-Type each of these in combination with a digit from the number pad area and see what happens!
+Type each of these in combination with a digit from the number pad area and see what happens! Here is a visual explanation of a couple of the modifiers. The full list is below.
+
+![How to modifiers for Red Numbers word converter and ordinal conversion](img/5-redn-step2.png)
+![How to modifiers for Red Numbers prefix and suffix years decimal money time](img/6-redn-step2-2.png)
 
 Function|Steno|Comments
 -----|-----|-----
@@ -105,6 +114,8 @@ ordinal + word conversion|`STA`
 
 `a.m.`, `p.m.`, and `o'clock` can also be combined with the `:` prefix.
 
+![Modifiers reference sheet for Red Numbers](img/7-redn-modifiers.png)
+
 By typing these modifiers in one stroke with your desired digits, you can save strokes!
 
 If you forget to combine them into one stroke, no problem. Most of these modifiers work as a standalone stroke; for example, typing `#P` will output a period with glue, ready to stick to whatever numbers come before and after it.
@@ -123,17 +134,20 @@ In order to flip the digits backwards, use the `O` key at the same time as a two
 
 #### Two-digit numbers where the digits are in the same column
 
-Some numbers cannot be input at the same time, such as 4 and 7 or 3 and 9. To write a two-digit number that consists of two numbers from the same column, write the first one as usual on the number pad, then combine it with T, TS, or S, based on the row in which the second digit resides. So for example, to type 25, `B` should be combined with `TS` since 5 is from the middle row.
+Some numbers cannot be input at the same time, such as 4 and 7 or 3 and 9. To write a two-digit number that consists of two numbers from the same column, write the first one as usual on the number pad, then combine it with `T`, `TS`, or `S`, based on the row in which the second digit resides. So for example, to type 25, `B` should be combined with `TS` since 5 is from the middle row.
 
 *This is the least intuitive aspect of Red Numbers. If you dislike it, feel free to stick to writing these numbers digit by digit.*
 
-For these numbers that include T, TS, and S, flipping them is disabled by default, because their order is already included. That is to say, the intended method of writing 52 is PB with S, not B with TS and flipped.
+For these numbers that include `T`, `TS`, and `S`, flipping them is disabled by default, because their order is already included. That is to say, the intended method of writing 52 is `PB` with `S`, not `B` with `TS` and flipped.
 
 #### Double 1 digit with O
 
 Lastly, to write double digit numbers consisting of the same digit, that is, multiples of 11, combine `O` with a single-digit number typed on the right hand. So to write 55, `PB` should be combined with `O`.
 
-You may point out that O was used for flipping; however, that is for two digit numbers. O with a two digit number flips, while O with a one digit number doubles.
+You may point out that `O` was used for flipping; however, that is for two digit numbers. `O` with a two digit number flips, while `O` with a one digit number doubles.
+
+![How to type two digit numbers with Red Numbers default and with O](img/3-redn-step3.png)
+![How to type two digit numbers with Red Numbers with T and S](img/4-redn-step3-2.png)
 
 You can now write any number from 0 to 99 in one stroke, as well as those numbers with anywhere from none to three zeroes on the end!
 
@@ -143,7 +157,7 @@ You can now write any number from 0 to 99 in one stroke, as well as those number
 
 Now that you've learned the system, you've likely learned what works and what doesn't work for you.
 
-In the .py file format on lines 10-78, there are instructions on customizing the code and switching the values of variables to your liking.
+In the .py file format on lines 10-79, there are instructions on customizing the code and switching the values of variables to your liking.
 
 #### Flipping behavior
 
@@ -155,7 +169,7 @@ You can remap the modifiers to different keys, for example. Red Numbers only use
 
 For example, you may decide that you can also reliably and accurately access the `K` key and work that into the modifiers. Or, you may decide you prefer a different finger than the left middle finger for the number bar, which will change which keys are accessible to use as modifiers.
 
-If you're using a hobbyist layout with split S, you may have access to all of the initial side, `STKPWHRA*` to use for modifiers.
+If you're using a hobbyist layout with split `S`, you may have access to all of the initial side, `STKPWHRA*` to use for modifiers.
 
 #### Other options
 
@@ -176,11 +190,9 @@ Functions not available that I'm currently not interested in adding:
 * number "or" number (e.g. two or three)
 
 Fixes I should make but I don't feel like it:
-* Zero percent (0 percent is not allowed in court reporting)
 * Better commas behavior (just like the money sign does retroactive comas, there should be a retroactive commas function in addition/in place of the complete control comma prefix function available currently)
 
 Quality of life upgrades:
-* Images to go in the guide/tutorial/documentation
 * Interactive drills to help try and understand the system
 * Reducing the nonsensical entries (mostly the ones with too many zeroes on the end)
 * More file formats to support more CATs, etc.
