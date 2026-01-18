@@ -566,7 +566,7 @@
 "#OFRLGZ": "{&64 p.m.}{}",
 "#-PBLGZ": "{&56 p.m.}{}",
 "#OPBLGZ": "{&65 p.m.}{}",
-"#-DZ": "{&zero o'clock}{}",
+"#-DZ": "{& o'clock}{}",
 "#EDZ": "{&zero o'clock}{}",
 "#UDZ": "{&zero o'clock}{}",
 "#-FDZ": "{&seven o'clock}{}",

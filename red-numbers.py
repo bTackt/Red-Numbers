@@ -2,7 +2,7 @@
 # Theory composed by taking inspiration from default CR machine numbers, Lapwing numbers, Harri numbers, Jeff's numbers
 # Code heavily based off of Jeff's numbers
 # Modular system - all strokes are single blocks
-# Release v1.2  - 1/9/26
+# Release v1.2.1  - 1/15/26
 #
 # See README.md for usage details.
 import re
@@ -339,7 +339,7 @@ def lookup(input):
     #only work in combination with no modifier "", : "HR"
     if match[3] and len(stroke_digits) <= 2:
         if match[1] == "" or match[1] == LEFT_MODIFIERS["colonPrefix"]:
-            if match[3] == "DZ": # if o'clock is used, the number should be words. CR rule but ruins total control for people who want to write 5 o'clock
+            if match[3] == "DZ" and result != "": # if o'clock is used, the number should be words. CR rule but ruins total control for people who want to write 5 o'clock
                 result = toWords(result)
             result += RIGHT_MODIFIERS[match[3]]
             default_end = False

@@ -190,7 +190,7 @@ Functions not available that I'm currently not interested in adding:
 * number "or" number (e.g. two or three)
 
 Fixes I should make but I don't feel like it:
-* Better commas behavior (just like the money sign does retroactive comas, there should be a retroactive commas function in addition/in place of the complete control comma prefix function available currently)
+* Better commas behavior (just like the money sign does retroactive commas, there should be a retroactive commas function in addition/in place of the complete control comma prefix function available currently)
 
 Quality of life upgrades:
 * Interactive drills to help try and understand the system
