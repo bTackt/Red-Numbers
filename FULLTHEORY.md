@@ -84,7 +84,7 @@ word converter|`A`|
 a.m. suffix|`-D`|
 p.m. suffix|`-Z`|
 o'clock suffix|`-DZ`|
-`-` suffix|`H`|
+`-` suffix|`H`|always sticks to the following word
 `:` prefix|`HR`|
 `.` prefix|`P`|
 `$` prefix|`PH`|alternate money sign available on `PH*`

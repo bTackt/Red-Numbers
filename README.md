@@ -89,7 +89,7 @@ word converter|`A`|
 a.m. suffix|`-D`|
 p.m. suffix|`-Z`|
 o'clock suffix|`-DZ`|
-`-` suffix|`H`|
+`-` suffix|`H`|always sticks to the following word
 `:` prefix|`HR`|
 `.` prefix|`P`|
 `$` prefix|`PH`|alternate money sign available on `PH*`
@@ -191,6 +191,7 @@ Functions not available that I'm currently not interested in adding:
 
 Fixes I should make but I don't feel like it:
 * Better commas behavior (just like the money sign does retroactive commas, there should be a retroactive commas function in addition/in place of the complete control comma prefix function available currently)
+* Create version of : colon prefix that allows for Bible reference type results (currently single digits force a leading 0 to become a 2 digit number)
 
 Quality of life upgrades:
 * Interactive drills to help try and understand the system

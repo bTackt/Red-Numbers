@@ -2,7 +2,7 @@
 # Theory composed by taking inspiration from default CR machine numbers, Lapwing numbers, Harri numbers, Jeff's numbers
 # Code heavily based off of Jeff's numbers
 # Modular system - all strokes are single blocks
-# Release v1.2.1  - 1/15/26
+# Release v1.3  - 2/14/26
 #
 # See README.md for usage details.
 import re
@@ -45,7 +45,7 @@ LEFT_MODIFIERS = {
 # 2. Change the default translations of right-hand modifiers below
 # Beware that these are hard-coded to only work when the number has two digits or less, and can only be combined
 # with left-hand modifiers {nothing, colonPrefix}. Additionally, o'clock forces an automatic word conversion on the number.
-# To change this behavior, visit lines 340-341
+# To change this behavior, visit lines 343-344
 RIGHT_MODIFIERS = {
     ""      : "",
     "D"     : " a.m.",      # a.m. suffix
@@ -149,6 +149,7 @@ def lookup(input):
     result = ""
     use_glue = True
     default_end = True
+    use_prefix = False
 
     if key == "#":
         raise KeyError
@@ -236,7 +237,7 @@ def lookup(input):
             result = add_commas(result, no_number)
         if match[1] == LEFT_MODIFIERS["hyphenSuffix"]:
             result += "-"
-            #true prefix (add to words, or for telephone numbers)
+            use_prefix = True
         if match[1] == LEFT_MODIFIERS["sSuffix"] or h_s:
             result += "s"
             default_end = False
@@ -353,6 +354,9 @@ def lookup(input):
 
     if use_glue:
         result = "{&" + result + "}"
+
+    if use_prefix:
+        result = result + "{^}"
     
     if not default_end:
         result += "{}"
